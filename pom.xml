@@ -15,6 +15,7 @@
     </properties>
 
     <modules>
+        <module>api</module>
         <module>microservices/product</module>
         <module>microservices/review</module>
         <module>microservices/recommendation</module>
