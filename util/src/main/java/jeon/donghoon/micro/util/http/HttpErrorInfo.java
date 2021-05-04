@@ -1,35 +1,33 @@
 package jeon.donghoon.micro.util.http;
 
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 
-import java.time.ZonedDateTime;
+import java.time.LocalDateTime;
 
 @Getter
 public class HttpErrorInfo {
 
-    private final ZonedDateTime timestamp;
+    private final LocalDateTime timestamp;
     private final String path;
-    private final HttpStatus httpStatus;
+    private final int status;
+    private final String error;
     private final String message;
 
     public HttpErrorInfo() {
         this.timestamp = null;
-        this.httpStatus = null;
+        this.status = 999;
         this.path = null;
         this.message = null;
+        this.error = null;
     }
 
     public HttpErrorInfo(HttpStatus httpStatus, String path, String message) {
-        timestamp = ZonedDateTime.now();
+        timestamp = LocalDateTime.now();
         this.path = path;
-        this.httpStatus = httpStatus;
+        this.status = httpStatus.value();
+        this.error = httpStatus.getReasonPhrase();
         this.message = message;
-    }
-
-    public String getError() {
-        return httpStatus.getReasonPhrase();
     }
 
 }

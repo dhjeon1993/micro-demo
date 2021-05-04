@@ -7,14 +7,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
-public class RecommendationApplication {
+public class ReviewApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(RecommendationApplication.class, args);
+		SpringApplication.run(ReviewApplication.class, args);
 	}
 
 	@Bean
 	public ServiceUtil serviceUtil(@Value("${server.port}")String port) {
 		return new ServiceUtil(port);
 	}
+
 }

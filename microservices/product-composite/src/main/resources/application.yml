@@ -1,0 +1,12 @@
+server:
+  port: 7000
+
+logging:
+  level:
+    jeon.donghoon.micro: debug
+
+api:
+  product-address: "http://localhost:7001/products/{productId}"
+  review-address: "http://localhost:7002/reviews?productId={productId}"
+  recommendation-address: "http://localhost:7003/recommendations?productId={productId}"
+  composite-address: "http://localhost:7000/products/{productId}"
