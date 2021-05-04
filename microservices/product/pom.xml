@@ -28,6 +28,18 @@
         </dependency>
 
         <dependency>
+            <groupId>jeon.donghoon</groupId>
+            <artifactId>micro-api</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>jeon.donghoon</groupId>
+            <artifactId>micro-util</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
+        <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <scope>runtime</scope>
