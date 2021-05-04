@@ -16,6 +16,7 @@
 
     <modules>
         <module>microservices/product</module>
+        <module>microservices/review</module>
     </modules>
 
 </project>
