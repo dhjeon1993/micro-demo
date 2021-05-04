@@ -18,6 +18,7 @@
         <module>microservices/product</module>
         <module>microservices/review</module>
         <module>microservices/recommendation</module>
+        <module>microservices/product-composite</module>
     </modules>
 
 </project>
