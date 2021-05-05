@@ -7,6 +7,7 @@ import jeon.donghoon.micro.util.exception.NotFoundException;
 import jeon.donghoon.micro.util.http.ServiceUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,7 +24,7 @@ public class ProductCompositeController implements ProductCompositeApi {
     private final ProductCompositeIntegration integration;
 
     @Override
-    @GetMapping("/products/{productId}")
+    @GetMapping(value = "/products/{productId}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ProductAggregate getProduct(@PathVariable("productId") int productId) {
 
         Product product = integration.getProduct(productId);

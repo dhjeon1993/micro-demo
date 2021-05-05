@@ -3,4 +3,13 @@ server:
 
 logging:
   level:
+    root: info
     jeon.donghoon.micro: debug
+
+---
+spring:
+  config:
+    activate:
+      on-profile: docker
+
+server.port: 8080

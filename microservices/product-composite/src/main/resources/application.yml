@@ -3,6 +3,7 @@ server:
 
 logging:
   level:
+    root: info
     jeon.donghoon.micro: debug
 
 api:
@@ -10,3 +11,17 @@ api:
   review-address: "http://localhost:7002/reviews?productId={productId}"
   recommendation-address: "http://localhost:7003/recommendations?productId={productId}"
   composite-address: "http://localhost:7000/products/{productId}"
+
+---
+spring:
+  config:
+    activate:
+      on-profile: docker
+
+server.port: 8080
+
+api:
+  product-address: "http://product:8080/products/{productId}"
+  review-address: "http://review:8080/reviews?productId={productId}"
+  recommendation-address: "http://recommendation:8080/recommendations?productId={productId}"
+  composite-address: "http://composite-product:8080/products/{productId}"

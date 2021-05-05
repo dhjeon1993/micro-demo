@@ -3,7 +3,6 @@ package jeon.donghoon.micro.util.http;
 import jeon.donghoon.micro.util.exception.InvalidInputException;
 import jeon.donghoon.micro.util.exception.NotFoundException;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -21,17 +20,19 @@ public class GlobalControllerExceptionHandler {
 
     @ResponseStatus(NOT_FOUND)
     @ExceptionHandler(NotFoundException.class)
-    public @ResponseBody HttpErrorInfo handleNotFoundExceptions(NotFoundException ex, HttpServletRequest request) {
+    public @ResponseBody
+    HttpErrorInfo handleNotFoundExceptions(NotFoundException ex, HttpServletRequest request) {
         return createHttpErrorInfo(NOT_FOUND, request, ex);
     }
 
     @ResponseStatus(UNPROCESSABLE_ENTITY)
     @ExceptionHandler(InvalidInputException.class)
-    public @ResponseBody HttpErrorInfo handleInvalidInputException(InvalidInputException ex, HttpServletRequest  request) {
+    public @ResponseBody
+    HttpErrorInfo handleInvalidInputException(InvalidInputException ex, HttpServletRequest request) {
         return createHttpErrorInfo(UNPROCESSABLE_ENTITY, request, ex);
     }
 
-    private HttpErrorInfo createHttpErrorInfo(HttpStatus httpStatus, HttpServletRequest  request, Exception ex) {
+    private HttpErrorInfo createHttpErrorInfo(HttpStatus httpStatus, HttpServletRequest request, Exception ex) {
         String path = request.getContextPath();
         String message = ex.getMessage();
 
